@@ -17,7 +17,7 @@ public class ParsePlugin extends CordovaPlugin {
     public static final String ACTION_GET_INSTALLATION_OBJECT_ID = "getInstallationObjectId";
     public static final String ACTION_GET_SUBSCRIPTIONS = "getSubscriptions";
     public static final String ACTION_SUBSCRIBE = "subscribe";
-        public static final String ACTION_UNSUBSCRIBE = "unsubscribe";
+    public static final String ACTION_UNSUBSCRIBE = "unsubscribe";
     public static final String ACTION_GET_Notification = "getNotification";
     public static String key;
 
