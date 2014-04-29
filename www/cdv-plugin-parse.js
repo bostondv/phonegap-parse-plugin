@@ -58,7 +58,8 @@ var parsePlugin = {
             [ channel ]
         );
     },
-	getNotification: function(successCallback, errorCallback) {
+
+    getNotification: function(successCallback, errorCallback) {
         cordova.exec(
             successCallback,
             errorCallback,

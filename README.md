@@ -20,11 +20,6 @@ phonegap local plugin add https://github.com/nickh364/phonegap-parse-plugin.git
 Usage Android
 -----
 
-#### Add this import to your activity
-```
-import com.parse.Parse;
-```
-
 #### Use this to get custom data like a story url from your notification
 <hr />
 
