@@ -7,18 +7,19 @@ import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.PushService;
 
 public class ParsePlugin extends CordovaPlugin {
     public static final String ACTION_INITIALIZE = "initialize";
-	public static final String ACTION_GET_INSTALLATION_ID = "getInstallationId";
-	public static final String ACTION_GET_INSTALLATION_OBJECT_ID = "getInstallationObjectId";
-	public static final String ACTION_GET_SUBSCRIPTIONS = "getSubscriptions";
-	public static final String ACTION_SUBSCRIBE = "subscribe";
-    	public static final String ACTION_UNSUBSCRIBE = "unsubscribe";
-	public static final String ACTION_GET_Notification = "getNotification";
-	public static String key;
+    public static final String ACTION_GET_INSTALLATION_ID = "getInstallationId";
+    public static final String ACTION_GET_INSTALLATION_OBJECT_ID = "getInstallationObjectId";
+    public static final String ACTION_GET_SUBSCRIPTIONS = "getSubscriptions";
+    public static final String ACTION_SUBSCRIBE = "subscribe";
+        public static final String ACTION_UNSUBSCRIBE = "unsubscribe";
+    public static final String ACTION_GET_Notification = "getNotification";
+    public static String key;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -113,7 +114,7 @@ public class ParsePlugin extends CordovaPlugin {
             }
         });
     }
-	private void getNotification(final CallbackContext callbackContext) {
+    private void getNotification(final CallbackContext callbackContext) {
         cordova.getThreadPool().execute(new Runnable() {
             public void run() {
                 callbackContext.success(key);
