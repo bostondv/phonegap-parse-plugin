@@ -50,9 +50,10 @@ Usage iOS
 
 #### Add this to your AppDelegates didFinishLaunchingWithOptions
 ```
-[application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
-     UIRemoteNotificationTypeAlert|
-     UIRemoteNotificationTypeSound];
+[application registerForRemoteNotificationTypes: 
+                                 UIRemoteNotificationTypeBadge |
+                                 UIRemoteNotificationTypeAlert |
+                                 UIRemoteNotificationTypeSound];
 ```
 #### Use this to get custom data like a story url from your notification
 <hr />
