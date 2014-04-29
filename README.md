@@ -27,10 +27,6 @@ Usage Android
 ```
 import com.parse.Parse;
 ```
-#### Add this under onCreate()
-```
-Parse.initialize(this, "Your Application ID", "Your Client Key");
-```
 
 #### Use this to get custom data like a story url from your notification
 <hr />
@@ -60,9 +56,6 @@ Usage iOS
 [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
      UIRemoteNotificationTypeAlert|
      UIRemoteNotificationTypeSound];
-    
-    [Parse setApplicationId:@"Your Application ID"
-                  clientKey:@"Your Client Key"];
 ```
 #### Use this to get custom data like a story url from your notification
 <hr />
@@ -114,7 +107,11 @@ Usage iOS
 - Security.framework
 - StoreKit.framework
 - SystemConfiguration.framework
+- Social.framework
+- Accounts.framework
+- AdSupport.framework
 - src/ios/Frameworks/Parse.framework
+- src/ios/Frameworks/FacebookSDK.framework
 
 Javascript Functions
 -----
