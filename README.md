@@ -1,6 +1,3 @@
-Working on updating the readme
-------------
-
 Phonegap Parse.com Plugin
 =========================
 
