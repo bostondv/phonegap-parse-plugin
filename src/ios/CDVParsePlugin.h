@@ -3,6 +3,7 @@
 
 @interface CDVParsePlugin: CDVPlugin
 
+- (void)initialize: (CDVInvokedUrlCommand*)command;
 - (void)getInstallationId: (CDVInvokedUrlCommand*)command;
 - (void)getInstallationObjectId: (CDVInvokedUrlCommand*)command;
 - (void)getSubscriptions: (CDVInvokedUrlCommand *)command;
