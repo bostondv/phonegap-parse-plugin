@@ -17,6 +17,47 @@ cordova plugin add https://github.com/bostondv/phonegap-parse-plugin.git
 
 phonegap local plugin add https://github.com/bostondv/phonegap-parse-plugin.git
 
+Installation Android
+--------------------
+You must create an Application class to ensure Parse.initialize() is always called before the service is started.
+
+- Create a file `MainApplication.java` in `platforms/android/src/<your package name>`
+
+- Add following contents replacing `<MainActivityClass>` with the class name of your main CordovaActvity, `YOUR_APP_ID` and `YOUR_CLIENT_KEY` with appropriate Parse keys, and `<com.example.app>` with your package name.
+
+```
+package <com.example.app>
+
+import android.app.Application;
+import android.content.Context;
+
+import com.parse.Parse;
+import com.parse.ParseInstallation;
+import com.parse.PushService;
+
+public class MainApplication extends Application {
+	private static MainApplication instance = new MainApplication();
+
+	public MainApplication() {
+		instance = this;
+	}
+
+	public static Context getContext() {
+		return instance;
+	}
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+  	Parse.initialize(this, "YOUR_APP_ID", "YOUR_CLIENT_KEY");
+  	PushService.setDefaultPushCallback(this, <MainActivityClass>.class);
+  	ParseInstallation.getCurrentInstallation().saveInBackground();
+	}
+}
+```
+
+- Update `AndroidManifest.xml` to reference the MainApplication class by adding `android:name="you.package.name.MainApplication"` to `<application>`. Replace `your.package.name` with the name of your applications package.
+
 Usage Android
 -----
 
@@ -45,7 +86,7 @@ Usage iOS
 
 #### Add this to your AppDelegates didFinishLaunchingWithOptions
 ```
-[application registerForRemoteNotificationTypes: 
+[application registerForRemoteNotificationTypes:
                                  UIRemoteNotificationTypeBadge |
                                  UIRemoteNotificationTypeAlert |
                                  UIRemoteNotificationTypeSound];
@@ -88,7 +129,7 @@ Usage iOS
 }
 ```
 <hr />
-#### iOS Frameworks used 
+#### iOS Frameworks used
 
 - AudioToolbox.framework
 - CFNetwork.framework
@@ -111,25 +152,25 @@ Javascript Functions
 ```
 <script type="text/javascript>
 	var parsePlugin =  = window.parsePlugin;
-	
+
 	parsePlugin.getInstallationId(function(id) {
 		alert(id);
 	}, function(e) {
 		alert('error');
 	});
-	
+
 	parsePlugin.getSubscriptions(function(subscriptions) {
 		alert(subscriptions);
 	}, function(e) {
 		alert('error');
 	});
-	
+
 	parsePlugin.subscribe('SampleChannel', function() {
 		alert('OK');
 	}, function(e) {
 		alert('error');
 	});
-	
+
 	parsePlugin.unsubscribe('SampleChannel', function(msg) {
 		alert('OK');
 	}, function(e) {
